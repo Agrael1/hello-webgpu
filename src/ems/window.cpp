@@ -1,30 +1,29 @@
 #include "window.h"
-
 #include <emscripten/html5.h>
 
-namespace window {
-/**
- * Temporary dummy window handle.
- */ 
-struct HandleImpl {} DUMMY;
+Window::HandleImpl Window::DUMMY;
 
-EM_BOOL em_redraw(double /*time*/, void *userData) {
-	window::Redraw redraw = (window::Redraw)userData;
-	return redraw(); // If this returns true, rAF() will continue, otherwise it will terminate
+HWND Window::GetWindowHandle()const noexcept
+{
+	return (void*)&DUMMY;
+}
+std::optional<WPARAM> Window::ProcessMessages() noexcept
+{
+	return{};
+}
+void Window::Show() const noexcept
+{
+
 }
 
-}
-
-//******************************** Public API ********************************/
-
-window::Handle window::create(unsigned /*winW*/, unsigned /*winH*/, const char* /*name*/) {
-	return &DUMMY;
-}
-
-void window::destroy(window::Handle /*wHnd*/) {}
-
-void window::show(window::Handle /*wHnd*/, bool /*show*/) {}
-
-void window::loop(window::Handle /*wHnd*/, window::Redraw func) {
-	emscripten_request_animation_frame_loop(window::em_redraw, (void*)func);
-}
+//namespace window {
+//EM_BOOL em_redraw(double /*time*/, void *userData) {
+//	window::Redraw redraw = (window::Redraw)userData;
+//	return redraw(); // If this returns true, rAF() will continue, otherwise it will terminate
+//}
+//
+//}
+//
+//void window::loop(HWND /*wHnd*/, window::Redraw func) {
+//	emscripten_request_animation_frame_loop(window::em_redraw, (void*)func);
+//}

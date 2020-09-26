@@ -7,13 +7,13 @@
 #ifdef __EMSCRIPTEN__
 #include <webgpu/webgpu.h>
 #else
-#include <dawn/webgpu.h>
+#include <dawn/webgpu_cpp.h>
 #endif
 
 #include "window.h"
 
 namespace webgpu {
-WGPUDevice create(window::Handle window, WGPUBackendType type = WGPUBackendType_Force32);
+WGPUDevice create(HWND window, WGPUBackendType type = WGPUBackendType_Force32);
 
 WGPUSwapChain createSwapChain(WGPUDevice device);
 

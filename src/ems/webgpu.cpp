@@ -11,7 +11,7 @@
 
 //******************************** Public API ********************************/
 
-WGPUDevice webgpu::create(window::Handle /*window*/, WGPUBackendType /*type*/) {
+WGPUDevice webgpu::create(HWND /*window*/, WGPUBackendType /*type*/) {
 	/*
 	 * Before calling this needs to have the WebGPU device pre-inited from JS,
 	 * which is an async call so needs some magic to delay running the main()
