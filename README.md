@@ -7,3 +7,5 @@ The included `libdawn` is pre-built for Windows/MSVC and Mac; [see instructions]
 ![Chrome and native side-by-side](screenshot.png)
 
 Dawn is Apache 2.0 licensed (see [LICENSE](lib/dawn/LICENSE)). The example code is released under a [Creative Commons Zero license](//creativecommons.org/publicdomain/zero/1.0/) (or Public Domain, whichever is applicable in your jurisdiction).
+
+Windows implementation library is under MIT License
